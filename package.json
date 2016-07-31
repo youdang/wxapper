@@ -1,0 +1,11 @@
+{
+  "build": {
+    "appId": "wxapper",
+    "app-category-type": "public.app-category.social-networking"
+  },
+  "scripts": {
+    "postinstall": "install-app-deps":
+    "pack": "build --dir",
+    "dist": "build"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "wxapper",
+  "description": "A Wrapper For Web Wechat(http://wx.qq.com)",
+  "version": "0.0.1",
+  "author": "progape <youdang0809@gmail.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "main.js"
+}
