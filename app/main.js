@@ -2,9 +2,6 @@ const {app, BrowserWindow} = require('electron')
 
 let mainWindow
 
-// is 'real' quit event triggered
-let isQuit = false
-
 function createWindow() {
     mainWindow = new BrowserWindow({
         width: 960,
@@ -18,11 +15,10 @@ function createWindow() {
     mainWindow.loadURL('https://wx.qq.com')
 
     mainWindow.on('close', (event) => {
-        if (process.platform === 'darwin' && !!!isQuit) {
-            // for macOS, we will not quit application unless 'real' quit event triggered
+        if (process.platform === 'darwin') {
             event.preventDefault()
+            mainWindow.hide()
         }
-        mainWindow.hide()
     })
 }
 
@@ -30,7 +26,7 @@ app.on('ready', createWindow)
 
 app.on('before-quit', () => {
     if (mainWindow !== null) {
-        isQuit = true
+        mainWindow.destroy()
     }
 })
 
