@@ -1,5 +1,5 @@
 # wxapper
-A Wrapper For Web Wechat(http://wx.qq.com)
+A Wrapper For Web Wechat(https://wx.qq.com)
 
 # How to build
 
