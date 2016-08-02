@@ -5,5 +5,8 @@
   "author": "progape <youdang0809@gmail.com>",
   "homepage": "",
   "license": "MIT",
-  "main": "main.js"
+  "main": "main.js",
+  "dependencies": {
+      "url": "^0.11.0"
+  }
 }

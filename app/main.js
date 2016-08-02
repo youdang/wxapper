@@ -1,4 +1,5 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, shell} = require('electron')
+const URL = require('url')
 
 let mainWindow
 
@@ -8,6 +9,8 @@ function createWindow() {
         height: 728,
         title: 'Wxapper',
         webPreferences: {
+            allowDisplayingInsecureContent: true,
+            allowRunningInsecureContent: true,
             nodeIntegration: false
         }
     })
@@ -19,6 +22,13 @@ function createWindow() {
             event.preventDefault()
             mainWindow.hide()
         }
+    })
+
+    let webContents = mainWindow.webContents
+    webContents.on('new-window', (event, url) => {
+        event.preventDefault()
+        let query = URL.parse(url, true).query
+        shell.openExternal(query.requrl)
     })
 }
 
