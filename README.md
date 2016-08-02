@@ -15,11 +15,51 @@ Simply run:
 npm run dist
 ```
 
-#### For macOS users
+If all worked OK, you can find distributions in `dist` directory.
 
-dmg & app will be found in `dist/mac/` folder
+## Cross Platform Build
 
-## Multi Platform Build
+Cross platform building relies on [Docker](http://docker.com), so you should install it first.
 
-see [https://github.com/electron-userland/electron-builder/wiki/Multi-Platform-Build]
+#### For Windows users
+
+Build Linux distribution:
+
+```
+docker run --rm -ti -v ${PWD}:/project -v ${PWD##*/}-node-modules:/project/node_modules -v ~/.electron:/root/.electron electronuserland/electron-builder:wine /bin/bash -c "npm install && npm prune && npm run dist:linux"
+```
+
+Build macOS distribution:
+
+```
+Not implemented yet
+```
+
+#### For Linux users:
+
+Build Windows distribution:
+
+```
+docker run --rm -ti -v ${PWD}:/project -v ${PWD##*/}-node-modules:/project/node_modules -v ~/.electron:/root/.electron electronuserland/electron-builder:wine /bin/bash -c "npm install && npm prune && npm run dist:win"
+```
+
+Build macOS distribution:
+
+```
+Not implemented yet
+```
+
+#### For macOS users:
+
+Build Windows distribution:
+
+```
+docker run --rm -ti -v ${PWD}:/project -v ${PWD##*/}-node-modules:/project/node_modules -v ~/.electron:/root/.electron electronuserland/electron-builder:wine /bin/bash -c "npm install && npm prune && npm run dist:win"
+```
+
+Build Linux distribution:
+
+```
+docker run --rm -ti -v ${PWD}:/project -v ${PWD##*/}-node-modules:/project/node_modules -v ~/.electron:/root/.electron electronuserland/electron-builder:wine /bin/bash -c "npm install && npm prune && npm run dist:linux"
+```
 
